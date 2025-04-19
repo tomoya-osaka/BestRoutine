@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>モーニングルーティン</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" th:href="@{/css/morning_style.css}" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- 共通ナビゲーション -->
+    <div th:replace="~{common/header :: navbar}"></div>
+
+    <!-- メイン -->
+    <main class="morning-form">
+      <h1>モーニングルーティン</h1>
+
+      <form method="post" th:action="@{/routine/save}" onsubmit="return validateRoutineInputs();">
+
+        <!-- 登録済みルーティンがあるとき -->
+        <div th:if="${morningList != null and !morningList.isEmpty()}">
+          <div class="routine-item" th:each="routine, iStat : ${morningList}">
+            <span class="routine-number" th:text="${iStat.index + 1} + '）'"></span>
+            <input type="text" class="routine-input" name="items" th:value="${routine.itemText}" />
+            <button class="remove-btn" type="button">－</button>
+          </div>
+        </div>
+
+        <!-- 登録がまだないとき -->
+        <div th:if="${morningList == null or morningList.isEmpty()}">
+          <div class="routine-item">
+            <span class="routine-number">1)</span>
+            <input type="text" class="routine-input" name="items" value="" />
+            <button class="remove-btn" type="button">－</button>
+          </div>
+        </div>
+
+        <!-- 追加・エラー・登録 -->
+        <div class="add-wrapper">
+          <button class="add-btn" type="button">＋</button>
+        </div>
+
+        <p id="error-message" class="error-message"></p>
+
+        <div class="submit-wrapper">
+          <button class="submit-btn" type="submit">登録</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+      ©2025 Tomoya Osaka
+      <a th:href="@{https://github.com/yourusername}">Githubでコードを見る</a>
+    </footer>
+
+  </div>
+
+  <!-- JS読み込み -->
+  <script th:src="@{/js/morning.js}"></script>
+  <script th:src="@{/js/header-toggle.js}"></script>
+</body>
+</html>

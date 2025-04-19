@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>エラー</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .error-msg {
+      color: #d9534f;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #FFA733;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>エラー</h2>
+  <br>
+  <p class="error-msg">エラーが発生しました。</p>
+  <p class="error-msg" th:text="${status} + '　' + ${error}"></p>
+  <br>
+  <a th:href="@{/home}">トップページに戻る</a>
+
+</body>
+</html>

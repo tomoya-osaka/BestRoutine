@@ -1,0 +1,22 @@
+<!-- templates/common/header.html -->
+<div th:fragment="navbar">
+  <header class="header">
+    <div class="logo">
+      <a th:href="@{/home}" style="display: flex; align-items: center; text-decoration: none;">
+        <img th:src="@{/img/icon.png}" alt="Best Routine アイコン">
+        <span style="color: #FFA733;">Best Routine</span>
+      </a>
+    </div>
+
+    <!-- ハンバーガーアイコン -->
+	<div class="menu-toggle">☰</div>
+    <!-- ナビゲーションリンク -->
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a th:href="@{/morning}">モーニングルーティン</a></li>
+        <li><a th:href="@{/night}">ナイトルーティン</a></li>
+        <li><a th:href="@{/mypage}">マイページ</a></li>
+      </ul>
+    </nav>
+  </header>  
+</div>

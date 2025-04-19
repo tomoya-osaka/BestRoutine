@@ -1,0 +1,155 @@
+/* =========================
+   ページ全体の設定
+   ========================= */
+body {
+  background-color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin: 10px 0 50px;
+}
+
+
+/* =========================
+   入力項目表示
+   ========================= */
+.routine-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.routine-number {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.routine-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  background-color: #fff;
+}
+
+
+/* =========================
+   マイナスボタン
+   ========================= */
+.remove-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #66e0f1;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  cursor: pointer;
+}
+
+
+/* =========================
+   プラスボタン
+   ========================= */
+.add-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background-color: #ff6e6e;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* =========================
+   登録ボタン
+   ========================= */
+.submit-wrapper {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: #66e0f1;
+  color: black;
+  font-weight: bold;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #3dcddd;
+}
+
+
+/* =========================
+   フッター
+   ========================= */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+
+/* =========================
+   エラーメッセージ
+   ========================= */
+.error-message {
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #d32f2f;
+  text-align: center;
+}
+
+
+/* =========================
+   フォーム余白
+   ========================= */
+.night-form {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+
+/* =========================
+   レスポンシブ対応
+   ========================= */
+@media (max-width: 768px) {
+  h1 {
+    text-align: center;
+    font-size: 2.0rem;
+    margin: 10px 0 50px;
+  }
+}

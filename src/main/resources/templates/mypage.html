@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>マイページ</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/mypage_style.css}">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- 共通ナビゲーション -->
+    <div th:replace="~{common/header :: navbar}"></div>
+
+    <!-- メイン -->
+    <main class="mypage-main">
+
+      <!-- モーニングルーティン -->
+      <section>
+        <h2>モーニングルーティン</h2>
+        <div class="routine-list">
+          <div class="routine-item" th:each="routine, iStat : ${mymorningList}">
+            <span class="routine-number" th:text="${iStat.index + 1} + '）'"></span>
+            <input type="text" class="routine-input" name="items" th:value="${routine.itemText}" readonly />
+            <input type="checkbox" class="routine-checkbox">
+          </div>
+        </div>
+      </section>
+
+      <!-- ナイトルーティン -->
+      <section>
+        <h2>ナイトルーティン</h2>
+        <div class="routine-list">
+          <div class="routine-item" th:each="routine, iStat : ${mynightList}">
+            <span class="routine-number" th:text="${iStat.index + 1} + '）'"></span>
+            <input type="text" class="routine-input" name="items" th:value="${routine.itemText}" readonly />
+            <input type="checkbox" class="routine-checkbox">
+          </div>
+        </div>
+      </section>
+
+      <!-- エラーメッセージ -->
+      <div id="errorMessage" class="error-message" style="color: red; margin-top: 1rem;"></div>
+
+      <!-- 確定ボタン -->
+      <form method="post" th:action="@{/achievement/save}">
+        <input type="hidden" name="isAllChecked" id="isAllCheckedInput" value="false" />
+        <div class="submit-wrapper">
+          <button class="submit-btn" type="submit" onclick="return checkAllBoxesChecked();">確定</button>
+        </div>
+      </form>
+
+      <!-- カレンダー -->
+      <div id="calendar" class="calendar"></div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+      ©2025 Tomoya Osaka
+      <a th:href="@{https://github.com/yourusername}">Githubでコードを見る</a>
+    </footer>
+  </div>
+
+  <!-- 達成日取得用の埋め込みJS -->
+  <script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    const achievementDates = /*[[${achievementDates}]]*/ [];
+    /*]]>*/
+  </script>
+
+  <!-- ✅ チェック確認バリデーション -->
+  <script>
+    function checkAllBoxesChecked() {
+      const checkboxes = document.querySelectorAll('.routine-checkbox');
+      const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+      const errorDiv = document.getElementById("errorMessage");
+
+      if (!allChecked) {
+        errorDiv.innerText = "すべてのチェックを入れてから確定してください。";
+        return false;
+      }
+
+      errorDiv.innerText = "";
+      document.getElementById('isAllCheckedInput').value = true;
+      return true;
+    }
+  </script>
+
+  <!-- カレンダー表示 -->
+  <script th:src="@{/js/calendar.js}"></script>
+
+  <!-- ハンバーガーメニューJS -->
+  <script th:src="@{/js/header-toggle.js}"></script>
+
+</body>
+</html>

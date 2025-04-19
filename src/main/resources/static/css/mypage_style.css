@@ -1,0 +1,130 @@
+/* =========================
+   マイページ専用スタイル
+   ========================= */
+.mypage-main {
+  padding: 2rem 1rem;
+  background-color: #fff;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2.5em 0 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+
+/* =========================
+   チェックリスト表示
+   ========================= */
+.routine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.routine-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.routine-number {
+  display: inline-block;
+  width: 2rem;
+}
+
+.routine-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  background-color: #fff;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #ffa733;
+}
+
+
+/* =========================
+   登録ボタン
+   ========================= */
+.submit-wrapper {
+  text-align: center;
+  margin: 80px 0;
+}
+
+.submit-btn {
+  background-color: #ffa733;
+  color: black;
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+/* =========================
+   カレンダー
+   ========================= */
+.calendar {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.calendar th,
+.calendar td {
+  padding: 0.8rem 0;
+  border-radius: 8px;
+}
+
+.calendar th {
+  color: #333;
+  font-weight: bold;
+}
+
+.calendar td {
+  color: #444;
+}
+
+.calendar td:hover {
+  background-color: #fbe3c4;
+  cursor: pointer;
+}
+
+.achieved-day {
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+}
+
+
+/* =========================
+   エラーメッセージ
+   ========================= */
+.error-message {
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #d32f2f;
+  text-align: center;
+}

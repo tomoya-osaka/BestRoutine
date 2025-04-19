@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Routine</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ✅ 共通ナビゲーション -->
+    <div th:replace="~{common/header :: navbar}"></div>
+
+    <!-- ✅ メインコピー -->
+    <section class="main-copy">
+      <h1>最高の<br>生活習慣を作る</h1>
+    </section>
+
+    <!-- ✅ アプリ紹介 -->
+    <section class="about">
+      <div class="about-inner">
+        <div class="about-icon">
+          <img th:src="@{/img/man_icon.png}" alt="太陽キャラクター">
+        </div>
+        <div class="about-text">
+          <h2>生活習慣を整えて充実した1日に！</h2>
+          <p>
+            生活習慣を整えると、集中力が上がって気分がよくなる！<br>
+            最高の1日を過ごせるようにルーティンを設定しよう！
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 使い方説明 -->
+    <section class="how-to">
+      <h2>このアプリの使い方</h2>
+
+      <div class="step">
+        <h3>1. モーニングルーティンとナイトルーティンを設定する</h3>
+        <p>
+          長くても1時間以内に終わるようにしよう！<br>
+          設定は入力して、登録を押すだけ！
+        </p>
+        <div class="button-group">
+          <a th:href="@{/morning}">
+            <button class="morning-btn">モーニングルーティン</button>
+          </a>
+          <a th:href="@{/night}">
+            <button class="night-btn">ナイトルーティン</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>2. マイページからできたかどうかを毎日チェックする</h3>
+        <p>
+          マイページでその日、できたかどうかをチェックしよう！<br>
+          カレンダーからどれくらい達成できたのかも確認できる！
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ フッター -->
+    <footer class="footer">
+      <p>
+        ©2025 Tomoya Osaka &nbsp;
+        <a th:href="@{https://github.com/}">Githubでコードを見る</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- ✅ ハンバーガーメニュー -->
+  <script th:src="@{/js/header-toggle.js}"></script>
+</body>
+</html>
